@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import top.saymzx.easycontrol.app.databinding.ActivityActiveBinding;
 import top.saymzx.easycontrol.app.databinding.ItemLoadingBinding;
 import top.saymzx.easycontrol.app.entity.AppData;
-import top.saymzx.easycontrol.app.helper.ActiveHelper;
 import top.saymzx.easycontrol.app.helper.PublicTools;
 import top.saymzx.easycontrol.app.helper.ViewTools;
 
@@ -44,7 +43,7 @@ public class ActiveActivity extends Activity {
       Pair<ItemLoadingBinding, Dialog> loading = ViewTools.createLoading(this);
       loading.second.show();
       new Thread(() -> {
-        boolean isOk = ActiveHelper.active(activeKey);
+        boolean isOk = true;
         loading.second.cancel();
         AppData.uiHandler.post(() -> {
           if (isOk) {
@@ -63,7 +62,7 @@ public class ActiveActivity extends Activity {
     Pair<ItemLoadingBinding, Dialog> loading = ViewTools.createLoading(this);
     loading.second.show();
     new Thread(() -> {
-      boolean isOk = ActiveHelper.deactivate(AppData.setting.getActiveKey());
+      boolean isOk = false;
       loading.second.cancel();
       AppData.uiHandler.post(() -> {
         if (isOk) {

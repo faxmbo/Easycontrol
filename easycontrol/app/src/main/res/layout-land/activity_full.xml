@@ -3,7 +3,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/blackBacnground"
+  android:background="@color/background"
   android:keepScreenOn="true"
   tools:context=".client.view.FullActivity">
 
@@ -24,7 +24,6 @@
       android:layout_width="40dp"
       android:layout_height="match_parent"
       android:layout_gravity="end"
-      android:background="@color/background"
       android:gravity="center"
       android:orientation="vertical"
       android:paddingTop="60dp"
@@ -81,25 +80,31 @@
       android:orientation="horizontal" />
   </LinearLayout>
 
-  <ImageView
-    android:id="@+id/button_more"
-    android:layout_width="40dp"
-    android:layout_height="60dp"
-    android:layout_gravity="top|start"
-    android:focusable="false"
-    android:padding="2dp"
-    android:rotation="90"
-    android:paddingTop="20dp"
-    android:src="@drawable/more"
-    android:tint="@color/onCardBackground" />
+  <FrameLayout
+      android:id="@+id/button_more"
+      android:layout_width="30dp"
+      android:layout_height="60dp"
+      android:layout_gravity="end|top"
+      android:layout_marginTop="80dp">
 
+    <View
+        android:layout_width="5dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/background_cron"
+        android:backgroundTint="@color/clientBar"
+        android:focusable="false" />
+  </FrameLayout>
+
+  <!-- 菜单 -->
   <LinearLayout
     android:id="@+id/bar_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="top|start"
+    android:layout_gravity="top|end"
+      android:layout_marginEnd="50dp"
+      android:layout_marginTop="70dp"
     android:layout_marginStart="60dp"
-    android:layout_marginTop="25dp"
     android:background="@drawable/background_cron"
     android:elevation="6dp"
     android:orientation="vertical"

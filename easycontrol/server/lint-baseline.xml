@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.6.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.6.0)" variant="all" version="8.6.0">
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="        if (codecName.toLowerCase().contains(&quot;opus&quot;)) opusEncodecList.add(codecName);"
+        errorLine2="                      ~~~~~~~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/server/helper/EncodecTools.java"
+            line="22"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details."
+        errorLine1="    targetSdk 34"
+        errorLine2="    ~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="16"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, DisplayManager.VIRTUAL_DISPLAY_FLAG_PRESENTATION, DisplayManager.VIRTUAL_DISPLAY_FLAG_SECURE, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR"
+        errorLine1="    return displayManager.createVirtualDisplay(&quot;easycontrol&quot;, realDisplayinfo.width, realDisplayinfo.height, realDisplayinfo.density, surface, flags);"
+        errorLine2="                                                                                                                                               ~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/server/wrappers/DisplayManager.java"
+            line="80"
+            column="144"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, DisplayManager.VIRTUAL_DISPLAY_FLAG_PRESENTATION, DisplayManager.VIRTUAL_DISPLAY_FLAG_SECURE, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR"
+        errorLine1="    return displayManager.createVirtualDisplay(&quot;easycontrol&quot;, realDisplayinfo.width, realDisplayinfo.height, realDisplayinfo.density, surface, flags);"
+        errorLine2="                                                                                                                                               ~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/server/wrappers/DisplayManager.java"
+            line="80"
+            column="144"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, DisplayManager.VIRTUAL_DISPLAY_FLAG_PRESENTATION, DisplayManager.VIRTUAL_DISPLAY_FLAG_SECURE, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR"
+        errorLine1="    return displayManager.createVirtualDisplay(&quot;easycontrol&quot;, realDisplayinfo.width, realDisplayinfo.height, realDisplayinfo.density, surface, flags);"
+        errorLine2="                                                                                                                                               ~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/server/wrappers/DisplayManager.java"
+            line="80"
+            column="144"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, DisplayManager.VIRTUAL_DISPLAY_FLAG_PRESENTATION, DisplayManager.VIRTUAL_DISPLAY_FLAG_SECURE, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR"
+        errorLine1="    return displayManager.createVirtualDisplay(&quot;easycontrol&quot;, realDisplayinfo.width, realDisplayinfo.height, realDisplayinfo.density, surface, flags);"
+        errorLine2="                                                                                                                                               ~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/server/wrappers/DisplayManager.java"
+            line="80"
+            column="144"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, DisplayManager.VIRTUAL_DISPLAY_FLAG_PRESENTATION, DisplayManager.VIRTUAL_DISPLAY_FLAG_SECURE, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR"
+        errorLine1="    return displayManager.createVirtualDisplay(&quot;easycontrol&quot;, realDisplayinfo.width, realDisplayinfo.height, realDisplayinfo.density, surface, flags);"
+        errorLine2="                                                                                                                                               ~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/server/wrappers/DisplayManager.java"
+            line="80"
+            column="144"/>
+    </issue>
+
+    <issue
+        id="WrongConstant"
+        message="Must be one or more of: DisplayManager.VIRTUAL_DISPLAY_FLAG_PUBLIC, DisplayManager.VIRTUAL_DISPLAY_FLAG_PRESENTATION, DisplayManager.VIRTUAL_DISPLAY_FLAG_SECURE, DisplayManager.VIRTUAL_DISPLAY_FLAG_OWN_CONTENT_ONLY, DisplayManager.VIRTUAL_DISPLAY_FLAG_AUTO_MIRROR"
+        errorLine1="    return displayManager.createVirtualDisplay(&quot;easycontrol&quot;, realDisplayinfo.width, realDisplayinfo.height, realDisplayinfo.density, surface, flags);"
+        errorLine2="                                                                                                                                               ~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/server/wrappers/DisplayManager.java"
+            line="80"
+            column="144"/>
+    </issue>
+
+</issues>

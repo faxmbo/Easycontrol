@@ -1,0 +1,1598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.6.0" type="baseline" client="gradle" dependencies="false" name="AGP (8.6.0)" variant="all" version="8.6.0">
+
+    <issue
+        id="InlinedApi"
+        message="Field requires API level 23 (current min is 21): `android.view.View#SYSTEM_UI_FLAG_LIGHT_STATUS_BAR`"
+        errorLine1="      context.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);"
+        errorLine2="                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/app/helper/ViewTools.java"
+            line="66"
+            column="64"/>
+    </issue>
+
+    <issue
+        id="SdCardPath"
+        message="Do not hardcode &quot;/sdcard/&quot;; use `Environment.getExternalStorageDirectory().getPath()` instead"
+        errorLine1="        adb.pushFile(file, &quot;/sdcard/Download/Easycontrol/&quot; + tempFileName, handleProcess);"
+        errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/app/client/tools/AdbTools.java"
+            line="68"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `usesCleartextTraffic` is only used in API level 23 and higher (current min is 21)"
+        errorLine1="    android:usesCleartextTraffic=&quot;true&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="23"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `directBootAware` is only used in API level 24 and higher (current min is 21)"
+        errorLine1="      android:directBootAware=&quot;true&quot;"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="58"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `trackTint` is only used in API level 23 and higher (current min is 21)"
+        errorLine1="      android:trackTint=&quot;@color/button&quot;"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_switch.xml"
+            line="39"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `trackTintMode` is only used in API level 23 and higher (current min is 21)"
+        errorLine1="      android:trackTintMode=&quot;multiply&quot;"
+        errorLine2="      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_switch.xml"
+            line="40"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="WifiManagerPotentialLeak"
+        message="The WIFI_SERVICE must be looked up on the Application context or memory will leak on devices &lt; Android N. Try changing `applicationContext` to `applicationContext.getApplicationContext()`"
+        errorLine1="    wifiManager = (WifiManager) applicationContext.getSystemService(Context.WIFI_SERVICE);"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/app/entity/AppData.java"
+            line="45"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="AppBundleLocaleChanges"
+        message="Found dynamic locale changes, but did not find corresponding Play Core library calls for downloading languages and splitting by language is not disabled in the `bundle` configuration"
+        errorLine1="    if (locale.equals(&quot;&quot;)) config.locale = Locale.getDefault();"
+        errorLine2="                                  ~~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/app/helper/ViewTools.java"
+            line="51"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Limit vector icons sizes to 200×200 to keep icon drawing fast; see https://developer.android.com/studio/write/vector-asset-studio#when for more"
+        errorLine1="    android:width=&quot;225dp&quot;"
+        errorLine2="                   ~~~~~">
+        <location
+            file="src/main/res/drawable/keyboard.xml"
+            line="2"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="VectorRaster"
+        message="Limit vector icons sizes to 200×200 to keep icon drawing fast; see https://developer.android.com/studio/write/vector-asset-studio#when for more"
+        errorLine1="    android:width=&quot;1024dp&quot;"
+        errorLine2="                   ~~~~~~">
+        <location
+            file="src/main/res/drawable/wifi.xml"
+            line="2"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="DiscouragedApi"
+        message="Use of this function is discouraged because resource reflection makes it harder to perform build optimizations and compile-time verification of code. It is much more efficient to retrieve resources by identifier (e.g. `R.foo.bar`) than by name (e.g. `getIdentifier(&quot;bar&quot;, &quot;foo&quot;, null)`)."
+        errorLine1="    @SuppressLint(&quot;InternalInsetResource&quot;) int resourceId = AppData.applicationContext.getResources().getIdentifier(&quot;status_bar_height&quot;, &quot;dimen&quot;, &quot;android&quot;);"
+        errorLine2="                                                                                                      ~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/app/client/view/SmallView.java"
+            line="299"
+            column="103"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        message="&quot;behavour&quot; is a common misspelling; did you mean &quot;behavior&quot; or &quot;behaviour&quot;?"
+        errorLine1="  &lt;string name=&quot;device_full_to_mini_on_running_detail&quot;>When fullscreen not manually exits,auto minimize it. Default behavour is switching to floating window mode.&lt;/string>"
+        errorLine2="                                                                                                                    ^">
+        <location
+            file="src/main/res/values-en/strings.xml"
+            line="78"
+            column="117"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        message="&quot;Ok&quot; is usually capitalized as &quot;OK&quot;"
+        errorLine1="  &lt;string name=&quot;device_button&quot;>Ok&lt;/string>"
+        errorLine2="                               ^">
+        <location
+            file="src/main/res/values-en/strings.xml"
+            line="106"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        message="&quot;Ok&quot; is usually capitalized as &quot;OK&quot;"
+        errorLine1="  &lt;string name=&quot;toast_change_locale&quot;>Ok, you may need to restart the APP&lt;/string>"
+        errorLine2="                                     ^">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="121"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="ExpiredTargetSdkVersion"
+        message="Google Play requires that apps target API level 33 or higher."
+        errorLine1="      targetSdk 29"
+        errorLine2="      ~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="16"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (1555 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="      android:pathData=&quot;M128,224c-17.6,0 -32,14.4 -32,32v512c0,17.6 14.4,32 32,32h896c17.6,0 32,-14.4 32,-32L1056,256c0,-17.6 -14.4,-32 -32,-32L128,224zM0,256c0,-70.6 57.4,-128 128,-128h896c70.6,0 128,57.4 128,128v512c0,70.6 -57.4,128 -128,128L128,896c-70.6,0 -128,-57.4 -128,-128L0,256zM352,640h448c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32L352,736c-17.6,0 -32,-14.4 -32,-32v-32c0,-17.6 14.4,-32 32,-32zM208,496c0,-17.6 14.4,-32 32,-32h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32zM240,304h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32c0,-17.6 14.4,-32 32,-32zM368,496c0,-17.6 14.4,-32 32,-32h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32zM400,304h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32c0,-17.6 14.4,-32 32,-32zM528,496c0,-17.6 14.4,-32 32,-32h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32zM560,304h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32c0,-17.6 14.4,-32 32,-32zM688,496c0,-17.6 14.4,-32 32,-32h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32zM720,304h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32c0,-17.6 14.4,-32 32,-32zM848,496c0,-17.6 14.4,-32 32,-32h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32zM880,304h32c17.6,0 32,14.4 32,32v32c0,17.6 -14.4,32 -32,32h-32c-17.6,0 -32,-14.4 -32,-32v-32c0,-17.6 14.4,-32 32,-32z&quot;/>"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/keyboard.xml"
+            line="8"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (824 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="    android:pathData=&quot;M722.4,497.8c28.8,-41.2 45.6,-91.4 45.6,-145.8 0,-141.4 -114.6,-256 -256,-256S256,210.6 256,352c0,54.4 16.8,104.6 45.6,145.8 7.4,10.6 16.2,22.6 25.6,35.4 25.8,35.4 56.6,77.8 79.6,119.6 20.8,38 31.4,77.6 36.6,115L346,767.8c-4.4,-24 -11.8,-47.4 -23.6,-69 -19.8,-36 -44.4,-69.8 -69,-103.6 -10.4,-14.2 -20.8,-28.4 -30.8,-42.8C183.2,495.8 160,426.6 160,352 160,157.6 317.6,0 512,0s352,157.6 352,352c0,74.6 -23.2,143.8 -62.8,200.6 -10,14.4 -20.4,28.6 -30.8,42.8 -24.6,33.6 -49.2,67.4 -69,103.6 -11.8,21.6 -19.2,45 -23.6,69h-97c5.2,-37.4 15.8,-77.2 36.6,-115 23,-41.8 53.8,-84.2 79.6,-119.6 9.4,-12.8 18,-24.8 25.4,-35.4zM512,256c-53,0 -96,43 -96,96 0,17.6 -14.4,32 -32,32s-32,-14.4 -32,-32c0,-88.4 71.6,-160 160,-160 17.6,0 32,14.4 32,32s-14.4,32 -32,32zM512,1024c-88.4,0 -160,-71.6 -160,-160v-32h320v32c0,88.4 -71.6,160 -160,160z&quot; />"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/lightbulb.xml"
+            line="8"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (852 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="    android:pathData=&quot;m722.4,497.8c28.8,-41.2 45.6,-91.4 45.6,-145.8c0,-141.4 -114.6,-256 -256,-256s-256,114.6 -256,256c0,54.4 16.8,104.6 45.6,145.8c7.4,10.6 16.2,22.6 25.6,35.4c25.8,35.4 56.6,77.8 79.6,119.6c20.8,38 31.4,77.6 36.6,115l-97.4,0c-4.4,-24 -11.8,-47.4 -23.6,-69c-19.8,-36 -44.4,-69.8 -69,-103.6c-10.4,-14.2 -20.8,-28.4 -30.8,-42.8c-39.4,-56.6 -62.6,-125.8 -62.6,-200.4c0,-194.4 157.6,-352 352,-352s352,157.6 352,352c0,74.6 -23.2,143.8 -62.8,200.6c-10,14.4 -20.4,28.6 -30.8,42.8c-24.6,33.6 -49.2,67.4 -69,103.6c-11.8,21.6 -19.2,45 -23.6,69l-97,0c5.2,-37.4 15.8,-77.2 36.6,-115c23,-41.8 53.8,-84.2 79.6,-119.6c9.4,-12.8 18,-24.8 25.4,-35.4l0,-0.2zM512,256c-53,0 -96,43 -96,96c0,17.6 -14.4,32 -32,32s-32,-14.4 -32,-32c0,-88.4 71.6,-160 160,-160c17.6,0 32,14.4 32,32s-14.4,32 -32,32zM512,1024c-88.4,0 -160,-71.6 -160,-160l0,-32l320,0l0,32c0,88.4 -71.6,160 -160,160z&quot; />"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/lightbulb_off.xml"
+            line="8"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="DisableBaselineAlignment"
+        message="Set `android:baselineAligned=&quot;false&quot;` on this element for better performance"
+        errorLine1="        &lt;LinearLayout"
+        errorLine2="         ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="135"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="DisableBaselineAlignment"
+        message="Set `android:baselineAligned=&quot;false&quot;` on this element for better performance"
+        errorLine1="  &lt;LinearLayout"
+        errorLine2="   ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="17"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="DisableBaselineAlignment"
+        message="Set `android:baselineAligned=&quot;false&quot;` on this element for better performance"
+        errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2=" ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_main.xml"
+            line="3"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="DisableBaselineAlignment"
+        message="Set `android:baselineAligned=&quot;false&quot;` on this element for better performance"
+        errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2=" ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_devices_item.xml"
+            line="3"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_active.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/blackBacnground` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/blackBacnground&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_ip.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;>"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_main.xml"
+            line="7"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;>"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_main.xml"
+            line="7"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/background` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/background&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_set.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/cardBackground` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/cardBackground&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_spinner.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/cardBackground` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/cardBackground&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_switch.xml"
+            line="6"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `@color/cardBackground` with a theme that also paints a background (inferred theme is `@android:style/Theme.DeviceDefault.Light.NoActionBar`)"
+        errorLine1="  android:background=&quot;@color/cardBackground&quot;"
+        errorLine2="  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_text.xml"
+            line="8"
+            column="3"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.onBlackBacnground` appears to be unused"
+        errorLine1="  &lt;color name=&quot;onBlackBacnground&quot;>#FFFFFF&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/color.xml"
+            line="20"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_launcher` appears to be unused">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.ic_launcher_background` appears to be unused"
+        errorLine1="  &lt;color name=&quot;ic_launcher_background&quot;>#FFFFFF&lt;/color>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/ic_launcher_background.xml"
+            line="3"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_launcher_foreground` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_launcher_foreground.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_launcher_round` appears to be unused">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher_round.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.item_request_permission` appears to be unused"
+        errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/layout/item_request_permission.xml"
+            line="3"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.keyboard` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/keyboard.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.app_name` appears to be unused"
+        errorLine1="  &lt;string name=&quot;app_name&quot;>易控•远程控制&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="3"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.main_float_permission` appears to be unused"
+        errorLine1="  &lt;string name=&quot;main_float_permission&quot;>请授予悬浮窗权限，否则软件无法使用&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="9"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.main_float_permission_button` appears to be unused"
+        errorLine1="  &lt;string name=&quot;main_float_permission_button&quot;>前往设置&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="10"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.toast_address_error` appears to be unused"
+        errorLine1="  &lt;string name=&quot;toast_address_error&quot;>地址格式错误&lt;/string>"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="127"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        message="This `ScrollView` layout or its `LinearLayout` parent is unnecessary; transfer the `background` attribute to the other view"
+        errorLine1="  &lt;ScrollView"
+        errorLine2="   ~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_active.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        message="This `LinearLayout` layout or its `LinearLayout` parent is possibly unnecessary"
+        errorLine1="          &lt;LinearLayout"
+        errorLine2="           ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="236"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        message="This `FrameLayout` layout or its `FrameLayout` parent is unnecessary; transfer the `background` attribute to the other view"
+        errorLine1="  &lt;FrameLayout"
+        errorLine2="   ~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_mini_view.xml"
+            line="7"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/main_background.webp` in densityless folder">
+        <location
+            file="src/main/res/drawable/main_background.webp"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_active.xml"
+            line="79"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="47"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="75"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="61"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="109"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="126"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="154"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="178"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="248"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="TextFields"
+        message="This text field does not specify an `inputType`"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="269"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_active.xml"
+            line="79"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="47"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="75"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="61"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="109"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="126"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="154"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="178"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="248"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="            &lt;EditText"
+        errorLine2="             ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="269"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="  &lt;EditText"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="  &lt;EditText"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="Autofill"
+        message="Missing `autofillHints` attribute"
+        errorLine1="  &lt;EditText"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="8"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ButtonCase"
+        message="The standard Android way to capitalize Ok is &quot;OK&quot; (tip: use `@android:string/ok` instead)"
+        errorLine1="  &lt;string name=&quot;device_button&quot;>Ok&lt;/string>"
+        errorLine2="                               ~~">
+        <location
+            file="src/main/res/values-en/strings.xml"
+            line="106"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="          &lt;ImageView"
+        errorLine2="           ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_active.xml"
+            line="53"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="            &lt;ImageView"
+        errorLine2="             ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="100"
+            column="14"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="          &lt;ImageView"
+        errorLine2="           ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="222"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="          &lt;ImageView"
+        errorLine2="           ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="314"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="          &lt;ImageView"
+        errorLine2="           ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="359"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="          &lt;ImageView"
+        errorLine2="           ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="404"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="32"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="40"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="42"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="50"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="52"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="60"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="62"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="70"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="83"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="111"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="118"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="121"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="128"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="131"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="138"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="141"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="148"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="157"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="164"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="167"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="174"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="177"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="184"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="187"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="194"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_ip.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_main.xml"
+            line="9"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_main.xml"
+            line="14"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_main.xml"
+            line="56"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_main.xml"
+            line="56"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_main.xml"
+            line="66"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_main.xml"
+            line="78"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="  &lt;ImageView"
+        errorLine2="   ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_set.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_devices_item.xml"
+            line="23"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_set_device.xml"
+            line="41"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="        &lt;ImageView"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_set_device.xml"
+            line="75"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="        &lt;ImageView"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_set_device.xml"
+            line="107"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="        &lt;ImageView"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_set_device.xml"
+            line="141"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="        &lt;ImageView"
+        errorLine2="         ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_set_device.xml"
+            line="173"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_mini_view.xml"
+            line="23"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_mini_view.xml"
+            line="48"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="40"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="50"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="60"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="106"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="116"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="126"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="136"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="152"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="162"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="172"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="      &lt;ImageView"
+        errorLine2="       ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="182"
+            column="8"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_active.xml"
+            line="79"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="47"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
+        errorLine1="        &lt;EditText"
+        errorLine2="         ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_adb_key.xml"
+            line="75"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
+        errorLine1="  &lt;EditText"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/res/layout-land/activity_full.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
+        errorLine1="  &lt;EditText"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_full.xml"
+            line="10"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="LabelFor"
+        message="Missing accessibility label: provide either a view with an `android:labelFor` that references this view or provide an `android:hint`"
+        errorLine1="  &lt;EditText"
+        errorLine2="   ~~~~~~~~">
+        <location
+            file="src/main/res/layout/module_small_view.xml"
+            line="8"
+            column="4"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="      } else loading.first.text.setText(process + &quot; %&quot;);"
+        errorLine2="                                        ~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/top/saymzx/easycontrol/app/helper/DeviceListAdapter.java"
+            line="166"
+            column="41"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;5555&quot;, should use `@string` resource"
+        errorLine1="              android:text=&quot;5555&quot;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="159"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;25166&quot;, should use `@string` resource"
+        errorLine1="              android:text=&quot;25166&quot;"
+        errorLine2="              ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="183"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;X&quot;, should use `@string` resource"
+        errorLine1="              android:text=&quot;X&quot;"
+        errorLine2="              ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_device_detail.xml"
+            line="265"
+            column="15"/>
+    </issue>
+
+    <issue
+        id="RtlSymmetry"
+        message="When you define `paddingStart` you should probably also define `paddingEnd` for right-to-left symmetry"
+        errorLine1="          android:paddingStart=&quot;15dp&quot; />"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_ip.xml"
+            line="52"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="RtlSymmetry"
+        message="When you define `paddingStart` you should probably also define `paddingEnd` for right-to-left symmetry"
+        errorLine1="          android:paddingStart=&quot;15dp&quot; />"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_ip.xml"
+            line="81"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="RtlSymmetry"
+        message="When you define `paddingStart` you should probably also define `paddingEnd` for right-to-left symmetry"
+        errorLine1="    android:paddingStart=&quot;12dp&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_devices_item.xml"
+            line="37"
+            column="5"/>
+    </issue>
+
+</issues>

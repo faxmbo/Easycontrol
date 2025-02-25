@@ -231,7 +231,7 @@ public final class Server {
             AudioEncode.release();
             break;
           case 2:
-            Device.fallbackResolution();
+            //Device.fallbackResolution();  //个人不需要恢复分辨率，直接注释掉了
             Device.fallbackScreenLightTimeout();
           case 3:
             Runtime.getRuntime().exit(0);

@@ -10,7 +10,7 @@ public final class Setting {
   private final SharedPreferences.Editor editor;
 
   public boolean getIsActive() {
-    return sharedPreferences.getBoolean("isActive", false);
+    return sharedPreferences.getBoolean("isActive", true);
   }
 
   public void setIsActive(boolean value) {

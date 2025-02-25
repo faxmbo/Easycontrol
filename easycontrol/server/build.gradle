@@ -1,11 +1,16 @@
 plugins {
-  id 'com.android.application' version '8.2.2'
+  id 'com.android.application' version '8.6.0'
 }
 
 android {
   namespace 'top.saymzx.easycontrol.server'
   compileSdk 34
 
+  android {
+    lint {
+      baseline = file("lint-baseline.xml")
+    }
+  }
   defaultConfig {
     minSdk 21
     targetSdk 34

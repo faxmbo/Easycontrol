@@ -29,11 +29,11 @@ public class MiniView {
   // 迷你悬浮窗
   private final ModuleMiniViewBinding miniView = ModuleMiniViewBinding.inflate(LayoutInflater.from(AppData.applicationContext));
   private final WindowManager.LayoutParams miniViewParams = new WindowManager.LayoutParams(
-    WindowManager.LayoutParams.WRAP_CONTENT,
-    WindowManager.LayoutParams.WRAP_CONTENT,
-    Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY : WindowManager.LayoutParams.TYPE_PHONE,
-    WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
-    PixelFormat.TRANSLUCENT
+          WindowManager.LayoutParams.WRAP_CONTENT,
+          WindowManager.LayoutParams.WRAP_CONTENT,
+          Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY : WindowManager.LayoutParams.TYPE_PHONE,
+          WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
+          PixelFormat.TRANSLUCENT
   );
 
   public MiniView(String uuid) {
@@ -44,7 +44,6 @@ public class MiniView {
     miniViewParams.x = 0;
     // 设置监听控制
     setBarListener();
-    setButtonListener();
   }
 
   public void show(ByteBuffer byteBuffer) {
@@ -92,6 +91,8 @@ public class MiniView {
   private void setBarListener() {
     AtomicInteger yy = new AtomicInteger();
     AtomicInteger oldYy = new AtomicInteger();
+    AtomicInteger startX = new AtomicInteger();
+    AtomicInteger startY = new AtomicInteger();
     miniView.getRoot().setOnTouchListener((v, event) -> {
       switch (event.getActionMasked()) {
         case MotionEvent.ACTION_OUTSIDE:
@@ -100,12 +101,40 @@ public class MiniView {
         case MotionEvent.ACTION_DOWN: {
           yy.set((int) event.getRawY());
           oldYy.set(miniViewParams.y);
+          startX.set((int) event.getRawX());
+          startY.set((int) event.getRawY());
           break;
         }
         case MotionEvent.ACTION_MOVE: {
-          miniViewParams.y = oldYy.get() + (int) event.getRawY() - yy.get();
-          device.miniY = miniViewParams.y;
-          AppData.windowManager.updateViewLayout(miniView.getRoot(), miniViewParams);
+          int deltaX = Math.abs((int) event.getRawX() - startX.get());
+          int deltaY = Math.abs((int) event.getRawY() - startY.get());
+          if (deltaX > 10 || deltaY > 10) {
+            miniViewParams.y = oldYy.get() + (int) event.getRawY() - yy.get();
+            device.miniY = miniViewParams.y;
+            AppData.windowManager.updateViewLayout(miniView.getRoot(), miniViewParams);
+          }
+          break;
+        }
+        case MotionEvent.ACTION_UP: {
+          int deltaX = Math.abs((int) event.getRawX() - startX.get());
+          int deltaY = Math.abs((int) event.getRawY() - startY.get());
+          if (deltaX <= 10 && deltaY <= 10) {
+            // 处理点击事件
+            if (event.getX() < miniView.buttonSmall.getRight() && event.getY() < (miniView.buttonSmall.getBottom() + miniView.center.getHeight())) {
+              clientController.handleAction("changeToSmall", null, 0);
+            } else if (event.getX() < miniView.buttonFull.getRight() && event.getY() < miniView.buttonFull.getBottom()) {
+              clientController.handleAction("changeToFull", null, 0);
+            }
+          } else {
+            // 吸附到左右两侧
+            int screenWidth = AppData.applicationContext.getResources().getDisplayMetrics().widthPixels;
+            if (event.getRawX() > screenWidth / 2) {
+              miniViewParams.x = screenWidth - miniView.getRoot().getWidth();
+            } else {
+              miniViewParams.x = 0;
+            }
+            AppData.windowManager.updateViewLayout(miniView.getRoot(), miniViewParams);
+          }
           break;
         }
       }
@@ -114,9 +143,6 @@ public class MiniView {
   }
 
   // 设置按钮监听
-  private void setButtonListener() {
-    miniView.buttonSmall.setOnClickListener(v -> clientController.handleAction( "changeToSmall", null, 0));
-    miniView.buttonFull.setOnClickListener(v -> clientController.handleAction( "changeToFull", null, 0));
-  }
+
 
 }

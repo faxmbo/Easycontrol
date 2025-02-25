@@ -15,7 +15,7 @@ import android.view.Display;
 import android.view.MotionEvent;
 import android.view.TextureView;
 import android.view.ViewGroup;
-
+import android.util.Log;
 import androidx.annotation.NonNull;
 
 import java.nio.ByteBuffer;
@@ -36,6 +36,8 @@ import top.saymzx.easycontrol.app.entity.MyInterface;
 import top.saymzx.easycontrol.app.helper.PublicTools;
 
 public class ClientController implements TextureView.SurfaceTextureListener {
+  public int vwidth;
+  public int vheight;
   private final Device device;
   private final ClientStream clientStream;
   private final MyInterface.MyFunction handle;
@@ -253,6 +255,10 @@ public class ClientController implements TextureView.SurfaceTextureListener {
   private void updateVideoSize(ByteBuffer byteBuffer) {
     int width = byteBuffer.getInt();
     int height = byteBuffer.getInt();
+    this.vwidth = width;
+    this.vheight = height;
+    Log.d("client", "width" + width);
+    Log.d("client", "height " + height);
     if (width <= 100 || height <= 100) return;
     this.videoSize = new Pair<>(width, height);
     updateSite(null);
