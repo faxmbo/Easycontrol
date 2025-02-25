@@ -1,6 +1,6 @@
 easycontrol/*.iml
 easycontrol/.gradle
-easycontrol/.idea
+
 easycontrol/local.properties
 
 easycontrol/app/build
