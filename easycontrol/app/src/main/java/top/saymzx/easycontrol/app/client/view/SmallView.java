@@ -72,8 +72,11 @@ public class SmallView extends ViewOutlineProvider {
     if (device == null || clientController == null) return;
     // 初始化
     smallView.barView.setVisibility(View.GONE);
-    smallViewParams.x = device.smallX;
-    smallViewParams.y = device.smallY;
+    // 根据当前方向初始化位置
+    DisplayMetrics screenSize = PublicTools.getScreenSize();
+    boolean isLandscape = screenSize.widthPixels > screenSize.heightPixels;
+    smallViewParams.x = isLandscape ? device.smallXLand : device.smallX;
+    smallViewParams.y = isLandscape ? device.smallYLand : device.smallY;
     updateMaxSize();
     if (!Objects.equals(device.startApp, "")) {
       smallView.buttonHome.setVisibility(View.GONE);
@@ -210,6 +213,15 @@ public class SmallView extends ViewOutlineProvider {
   // 设置悬浮窗大小拖动按钮监听控制
   @SuppressLint("ClickableViewAccessibility")
   private void setReSizeListener() {
+    final long[] lastUpdateTime = {0L};
+    final Runnable updateRunnable = new Runnable() {
+      @Override
+      public void run() {
+        updateMaxSize();
+        lastUpdateTime[0] = System.currentTimeMillis();
+      }
+    };
+
     smallView.reSize.setOnTouchListener((v, event) -> {
       int sizeX = (int) (event.getRawX() - smallViewParams.x);
       int sizeY = (int) (event.getRawY() - smallViewParams.y);
@@ -217,7 +229,14 @@ public class SmallView extends ViewOutlineProvider {
       ViewGroup.LayoutParams textureViewLayoutParams = clientController.getTextureView().getLayoutParams();
       if (textureViewLayoutParams.width < textureViewLayoutParams.height) device.smallLength = length;
       else device.smallLengthLan = length;
-      updateMaxSize();
+
+      // 节流更新频率，最小间隔50ms
+      if (System.currentTimeMillis() - lastUpdateTime[0] > 50) {
+        updateRunnable.run();
+      } else {
+        smallView.getRoot().removeCallbacks(updateRunnable);
+        smallView.getRoot().postDelayed(updateRunnable, 50);
+      }
       return true;
     });
   }
@@ -233,6 +252,16 @@ public class SmallView extends ViewOutlineProvider {
   public void updateView(int x, int y) {
     smallViewParams.x = x;
     smallViewParams.y = y;
+    // 保存位置时区分横竖屏
+    DisplayMetrics screenSize = PublicTools.getScreenSize();
+    boolean isLandscape = screenSize.widthPixels > screenSize.heightPixels;
+    if (isLandscape) {
+      device.smallXLand = x;
+      device.smallYLand = y;
+    } else {
+      device.smallX = x;
+      device.smallY = y;
+    }
     AppData.windowManager.updateViewLayout(smallView.getRoot(), smallViewParams);
   }
 

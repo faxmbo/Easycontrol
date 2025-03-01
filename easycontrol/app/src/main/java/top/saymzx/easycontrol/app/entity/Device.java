@@ -36,6 +36,8 @@ public class Device {
   public int customResolutionHeight = 2400;
   public int smallX = 200;
   public int smallY = 200;
+  public int smallXLand = 200;
+  public int smallYLand = 200;
   public int smallLength = 800;
   public int smallXLan = 200;
   public int smallYLan = 200;
