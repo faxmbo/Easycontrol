@@ -46,6 +46,7 @@ public final class AudioEncode {
     MediaFormat encodecFormat = MediaFormat.createAudioFormat(codecMime, AudioCapture.SAMPLE_RATE, AudioCapture.CHANNELS);
     encodecFormat.setInteger(MediaFormat.KEY_BIT_RATE, 128000);
     encodecFormat.setInteger(MediaFormat.KEY_MAX_INPUT_SIZE, AudioCapture.AUDIO_PACKET_SIZE);
+    encodecFormat.setInteger(MediaFormat.KEY_LATENCY, 1); // 添加低延迟编码配置
     encedec.configure(encodecFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);
   }
 

@@ -29,7 +29,7 @@ public final class AudioCapture {
   private static final int CHANNEL_MASK = AudioFormat.CHANNEL_IN_LEFT | AudioFormat.CHANNEL_IN_RIGHT;
   public static final int ENCODING = AudioFormat.ENCODING_PCM_16BIT;
   private static final int BYTES_PER_SAMPLE = 2;
-  public static final int AUDIO_PACKET_SIZE = SAMPLE_RATE * CHANNELS * BYTES_PER_SAMPLE * 40 / 1000;
+  public static final int AUDIO_PACKET_SIZE = SAMPLE_RATE * CHANNELS * BYTES_PER_SAMPLE * 20 / 1000; // 从40ms减少到20ms
   private static final int MINI_BUFFER_SIZE = Math.min(AudioRecord.getMinBufferSize(SAMPLE_RATE, CHANNEL_CONFIG, ENCODING), AUDIO_PACKET_SIZE * 4);
 
   public static AudioRecord init() {
