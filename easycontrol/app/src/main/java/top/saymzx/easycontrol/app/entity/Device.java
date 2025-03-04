@@ -43,6 +43,8 @@ public class Device {
   public int smallYLan = 200;
   public int smallLengthLan = 800;
   public int miniY = 200;
+  public String connectShell = "";
+  public String disconnectShell = "";
 
   public Device(String uuid, int type) {
     this.uuid = uuid;
@@ -89,7 +91,6 @@ public class Device {
     newDevice.lockOnClose = lockOnClose;
     newDevice.lightOnClose = lightOnClose;
     newDevice.reconnectOnClose = reconnectOnClose;
-
     newDevice.customResolutionWidth = customResolutionWidth;
     newDevice.customResolutionHeight = customResolutionHeight;
     newDevice.smallX = smallX;
@@ -99,6 +100,8 @@ public class Device {
     newDevice.smallYLan = smallYLan;
     newDevice.smallLengthLan = smallLengthLan;
     newDevice.miniY = miniY;
+    newDevice.connectShell = connectShell;
+    newDevice.disconnectShell = disconnectShell;
     return newDevice;
   }
 }

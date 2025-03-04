@@ -278,6 +278,16 @@
               android:textColor="@color/onCardBackground"
               android:textSize="@dimen/smallFont" />
           </LinearLayout>
+
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="连接时执行的Shell命令" />
+          <EditText
+            android:id="@+id/connect_shell_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入shell命令" />
         </LinearLayout>
       </LinearLayout>
 
@@ -364,11 +374,23 @@
         </LinearLayout>
 
         <LinearLayout
-          android:id="@+id/layout_on_close_sub"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical"
-          android:visibility="gone" />
+            android:id="@+id/layout_on_close_sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="断开时执行的Shell命令" />
+
+          <EditText
+              android:id="@+id/disconnect_shell_edit"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:hint="输入shell命令" />
+        </LinearLayout>
       </LinearLayout>
 
       <LinearLayout

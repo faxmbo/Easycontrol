@@ -14,7 +14,7 @@ import top.saymzx.easycontrol.app.entity.Device;
 public class DbHelper extends SQLiteOpenHelper {
 
   private static final String dataBaseName = "app.db";
-  private static final int version = 23;
+  private static final int version = 24;
   private final String tableName = "DevicesDb";
 
   public DbHelper(Context context) {
@@ -60,7 +60,9 @@ public class DbHelper extends SQLiteOpenHelper {
     stringBuilder.append("smallXLan integer,");
     stringBuilder.append("smallYLan integer,");
     stringBuilder.append("smallLengthLan integer,");
-    stringBuilder.append("miniY integer);");
+    stringBuilder.append("miniY integer,");
+    stringBuilder.append("connectShell text,");
+    stringBuilder.append("disconnectShell text);");
     db.execSQL(stringBuilder.toString());
   }
 
@@ -158,6 +160,8 @@ public class DbHelper extends SQLiteOpenHelper {
     values.put("smallYLan", device.smallYLan);
     values.put("smallLengthLan", device.smallLengthLan);
     values.put("miniY", device.miniY);
+    values.put("connectShell", device.connectShell);
+    values.put("disconnectShell", device.disconnectShell);
     return values;
   }
 
@@ -302,6 +306,15 @@ public class DbHelper extends SQLiteOpenHelper {
           device.miniY = cursor.getInt(i);
           break;
         }
+        case "connectShell": {
+          device.connectShell = cursor.getString(i);
+          break;
+        }
+        case "disconnectShell": {
+          device.disconnectShell = cursor.getString(i);
+          break;
+        }
+
       }
     }
     return device;

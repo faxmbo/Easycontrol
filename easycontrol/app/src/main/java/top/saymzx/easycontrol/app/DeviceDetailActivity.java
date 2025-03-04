@@ -24,6 +24,7 @@ import top.saymzx.easycontrol.app.entity.Device;
 import top.saymzx.easycontrol.app.helper.MyBroadcastReceiver;
 import top.saymzx.easycontrol.app.helper.PublicTools;
 import top.saymzx.easycontrol.app.helper.ViewTools;
+import android.util.Log;
 
 public class DeviceDetailActivity extends Activity {
   private ActivityDeviceDetailBinding activityDeviceDetailBinding;
@@ -68,6 +69,8 @@ public class DeviceDetailActivity extends Activity {
     activityDeviceDetailBinding.customResolution.setVisibility(device.customResolutionOnConnect ? View.VISIBLE : View.GONE);
     activityDeviceDetailBinding.customResolutionWidth.setText(String.valueOf(device.customResolutionWidth));
     activityDeviceDetailBinding.customResolutionHeight.setText(String.valueOf(device.customResolutionHeight));
+    activityDeviceDetailBinding.connectShellEdit.setText(device.connectShell);
+    activityDeviceDetailBinding.disconnectShellEdit.setText(device.disconnectShell);
     // 连接时操作
     activityDeviceDetailBinding.layoutOnConnect.setOnClickListener(v -> activityDeviceDetailBinding.layoutOnConnectSub.setVisibility(activityDeviceDetailBinding.layoutOnConnectSub.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE));
     activityDeviceDetailBinding.layoutOnConnectSub.addView(ViewTools.createSwitchCard(this, getString(R.string.device_custom_resolution_on_connect), getString(R.string.device_custom_resolution_on_connect_detail), device.customResolutionOnConnect, isChecked -> activityDeviceDetailBinding.customResolution.setVisibility(isChecked ? View.VISIBLE : View.GONE)).getRoot(), 0);
@@ -118,6 +121,8 @@ public class DeviceDetailActivity extends Activity {
       device.startApp = String.valueOf(activityDeviceDetailBinding.startApp.getText());
       device.adbPort = Integer.parseInt(String.valueOf(activityDeviceDetailBinding.adbPort.getText()));
       device.serverPort = Integer.parseInt(String.valueOf(activityDeviceDetailBinding.serverPort.getText()));
+      device.connectShell = String.valueOf(activityDeviceDetailBinding.connectShellEdit.getText()).trim();
+      device.disconnectShell = String.valueOf(activityDeviceDetailBinding.disconnectShellEdit.getText()).trim();
       // 自定义分辨率
       String width = String.valueOf(activityDeviceDetailBinding.customResolutionWidth.getText());
       String height = String.valueOf(activityDeviceDetailBinding.customResolutionHeight.getText());

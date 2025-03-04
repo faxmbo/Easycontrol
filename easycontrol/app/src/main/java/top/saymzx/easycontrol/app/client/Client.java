@@ -47,6 +47,7 @@ public class Client {
         if (device.customResolutionOnConnect) clientController.handleAction("writeByteBuffer", ControlPacket.createChangeResolutionEvent(device.customResolutionWidth, device.customResolutionHeight), 0);
         if (!isTempDevice && device.wakeOnConnect) clientController.handleAction("buttonWake", null, 0);
         if (!isTempDevice && device.lightOffOnConnect) clientController.handleAction("buttonLightOff", null, 2000);
+        if (!isTempDevice && device.connectShell !="") AdbTools.runOnceCmd(device, device.connectShell, result -> {});
       }
       if (loading.second.isShowing()) loading.second.cancel();
     });
@@ -96,6 +97,7 @@ public class Client {
     // 运行断开时操作
     if (!isTempDevice && device.lockOnClose) clientController.handleAction("buttonLock", null, 0);
     else if (!isTempDevice && device.lightOnClose) clientController.handleAction("buttonLight", null, 0);
+    if (!isTempDevice && device.disconnectShell !="") AdbTools.runOnceCmd(device, device.disconnectShell, result -> {});
     // 关闭组件
     if (clientPlayer != null) clientPlayer.close();
     if (clientController != null) clientController.close();
